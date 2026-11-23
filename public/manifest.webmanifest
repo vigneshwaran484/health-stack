@@ -1,0 +1,13 @@
+{
+  "name": "Health Stack",
+  "short_name": "Health Stack",
+  "description": "Consent-first access to your medical record.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070b14",
+  "theme_color": "#070b14",
+  "orientation": "portrait",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

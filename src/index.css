@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink-950: #070b14;
+  --color-ink-900: #0d1424;
+  --color-ink-850: #131c30;
+  --color-ink-800: #1a2540;
+  --color-ink-700: #26334f;
+  --color-ink-500: #64748b;
+  --color-ink-300: #b3c0d4;
+  --color-mint-400: #34d8b4;
+  --color-mint-500: #14b89a;
+  --color-mint-600: #0d9182;
+}
+
+html, body, #root { height: 100%; }
+
+body {
+  background: var(--color-ink-950);
+  color: #e8eefb;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Provider apps are desktop web; the patient + caregiver apps are the PWA
+   surfaces, so they render inside a phone frame on a big screen. */
+.phone-frame {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100dvh;
+  background: var(--color-ink-900);
+  box-shadow: 0 0 0 1px #1f2b47, 0 30px 80px -20px #000;
+}
+
+@media (min-width: 900px) {
+  .phone-frame {
+    min-height: min(880px, 94dvh);
+    margin: 3dvh auto;
+    border-radius: 32px;
+    overflow: hidden;
+    border: 1px solid #223052;
+  }
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: #26334f; border-radius: 8px; }
+
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(52, 216, 180, .45); }
+  70%  { box-shadow: 0 0 0 16px rgba(52, 216, 180, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(52, 216, 180, 0); }
+}
+.pulse-ring { animation: pulse-ring 1.8s cubic-bezier(.4,0,.6,1) infinite; }
+
+@keyframes slide-up {
+  from { transform: translateY(18px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+.slide-up { animation: slide-up .28s ease-out both; }
